@@ -101,6 +101,13 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach(anonymousFunction)
+
+  function anonymousFunction(value,index,arr2){
+
+    
+  
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
