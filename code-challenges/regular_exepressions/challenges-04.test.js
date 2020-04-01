@@ -14,6 +14,11 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  let validation = /[0-9]/g
+  return validation.test(input);
+  
+  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,6 +31,16 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  let finder = /[A-Z][a-z]*/g
+
+
+  let ho = str.match(finder);
+  console.log(ho);
+  let empt = [];
+
+  return ho || empt;
+  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
