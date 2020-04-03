@@ -12,7 +12,6 @@ const greeting = (word) => {
   // Solution code here...
   return word.toUpperCase()
 };
-
 const speaker = (message, callback) => {
   // Solution code here...
   return callback(message);
@@ -38,7 +37,6 @@ const addValues = (arr, value) => {
   // Solution code here...
   arr.push(value);
 };
-
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
   for (let i = 0; i < times; i++) {
@@ -104,7 +102,6 @@ const removeWithAnon = (arr) => {
   arr.forEach(value => {
     if (value % 3 === 2) {
       arr.pop()
-
     }
   })
   return arr;
@@ -158,19 +155,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-  let output = [];
+  let outputArray = [];
   arr.forEach((value) => {
     if ((value % 3 === 0) && (value % 5 === 0)) {
-      output.push('Fizz Buzz')
+      outputArray.push('Fizz Buzz')
     } else if (value % 5 === 0) {
-      output.push('Buzz')
+      outputArray.push('Buzz')
     } else if (value % 3 === 0) {
-      output.push('Fizz')
+      outputArray.push('Fizz')
     } else {
-      output.push(value);
+      outputArray.push(value);
     }
   })
-  return output;
+  return outputArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
