@@ -149,7 +149,7 @@ const sortPeopleBetter = (arr) => {
     arr.sort((a, b) => {
         if ((a.lastName === b.lastName)&&(a.firstName !== b.firstName)) {
 
-            return a.firstName.charAt(0) > b.firstName.charAt(0)
+            return a.firstName > b.firstName
 
         } else if (a.firstName+a.lastName === b.firstName+b.lastName) {
 
@@ -157,7 +157,7 @@ const sortPeopleBetter = (arr) => {
 
 
         } else {
-            return a.lastName.charAt(0) > b.lastName.charAt(0)
+            return a.lastName > b.lastName
         }
     })
     return arr;

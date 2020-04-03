@@ -35,8 +35,9 @@ const isCapitalized = (str) => {
 
 
   let ho = str.match(finder);
-  console.log(ho);
+  // console.log(ho);
   let empt = [];
+// console.log( 'hey',ho || empt);
 
   return ho || empt;
   
@@ -51,6 +52,19 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let capcity = [];
+  let regfind = /[A-J][a-z]*/g
+  arr.forEach(value => {
+
+  capcity = value.match(regfind);
+  let ho =[];
+});
+console.log(capcity);
+
+return capcity||ho
+
+  
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
