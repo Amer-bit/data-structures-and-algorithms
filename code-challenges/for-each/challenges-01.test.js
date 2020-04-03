@@ -158,13 +158,13 @@ const fizzbuzz = (arr) => {
   let outputArray = [];
   arr.forEach((value) => {
     if ((value % 3 === 0) && (value % 5 === 0)) {
-      output.push('Fizz Buzz')
+      outputArray.push('Fizz Buzz')
     } else if (value % 5 === 0) {
-      output.push('Buzz')
+      outputArray.push('Buzz')
     } else if (value % 3 === 0) {
-      output.push('Fizz')
+      outputArray.push('Fizz')
     } else {
-      output.push(value);
+      outputArray.push(value);
     }
   })
   return outputArray;
