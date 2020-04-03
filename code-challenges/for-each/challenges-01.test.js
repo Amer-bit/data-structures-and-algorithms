@@ -109,7 +109,6 @@ const removeWithAnon = (arr) => {
 
     
   
-  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -131,6 +130,17 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let itemList = []
+  availableItems.forEach((value) => {
+
+    if (value.available){
+      itemList.push(value.name)
+    } 
+
+  })
+
+  return itemList
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,6 +159,22 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let output = [];
+  arr.forEach((value,index) => {
+    if (value % 3 === 0) {
+      
+      output.push('Fizz')
+      
+      if(value % 5 === 0){
+        output.push('Buzz')
+        output.push('Fizz Buzz')
+      }
+      
+    } else {
+      output.push(value);
+    }
+  })
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
