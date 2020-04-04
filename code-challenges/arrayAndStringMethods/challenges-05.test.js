@@ -16,10 +16,10 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
-  result.push(str)
-  result.forEach((value) =>{
-    value.splice(0,1)
-  })
+   
+  for (let i = 0; i <= str.length;i++ ){
+    result.push(str.slice(i ,str.length))
+  }
   return result;
 };
 
@@ -33,6 +33,11 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  let result = [];
+  for( let i = 0; i < arr.length; ){
+    result.push(arr.slice(i , ++i))
+  }
+  return result
 };
 
 
@@ -80,6 +85,11 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach(value => {
+   let ingred = value.indexOf(" ",3)
+  result.push(value.slice(ingred+1,value.length))
+    
+  });
   return result;
 };
 
@@ -94,6 +104,17 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+   recipe.ingredients.forEach(value => {
+     let ingred = value.split(" ");
+    //  console.log(ingred.length);
+     
+     if(ingred.length === 3){result.push(`${ingred[2]}`)}
+     if(ingred.length === 4){result.push(`${ingred[2]} ${ingred[3]}`)}
+     if(ingred.length === 5){result.push(`${ingred[2]} ${ingred[3]} ${ingred[4]}`)}
+   
+    
+   });
+
   return result;
 };
 
@@ -110,6 +131,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.steps.forEach(value =>{
+   let hey = value.indexOf(" ")
+   result.push(value.slice(0,hey))
+  })  
   return result;
 };
 
@@ -128,6 +153,15 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  let arr2 = arr
+  arr2.forEach((value,index) =>{
+    console.log(value ,index);
+    if(value % 2 === 0){      
+      arr.splice(index , 1)
+      console.log(arr2);
+      
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
