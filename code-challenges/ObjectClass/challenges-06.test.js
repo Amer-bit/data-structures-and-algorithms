@@ -93,10 +93,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-  console.log(arr.Object.value(arr[0]));
-  
+  arr.forEach(value =>{
+    let nameArr1 = Object.keys(value);
+    let nameArr2 = Object.values(value) 
+    console.log(nameArr1, nameArr2);
+    
   })
-
 };
 
 /* ------------------------------------------------------------------------------------------------
