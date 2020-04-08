@@ -30,16 +30,13 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
     // Solution code here...
-    let vowels = arr.filter(value =>{
-        return value.includes('e')||
-        value.includes('i')||
-        value.includes('o')||
-        value.includes('u')||
-        value.includes('a')
+    let vowels = arr.filter(value => {
+        let valid = /\w*[aeiuo]\w*/g
+        return (value.match(valid))
     })
     // console.log(vowels);
     return vowels
-    
+
 };
 
 
@@ -53,8 +50,14 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
     // Solution code here...
-    
-    };
+    let filteredArr = arr.filter(value => {
+        return !(forbiddenValues.includes(value))
+
+    })
+    //    console.log(filteredArr);
+
+    return filteredArr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -97,6 +100,14 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
     // Solution code here...
+    let filteredArr = arr.filter(value => {
+        // console.log('min', minBaseStat, 'base', value.baseStat);
+
+        return (value.baseStat > minBaseStat)
+    })
+    // console.log(filteredArr);
+
+    return filteredArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,7 +119,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-    // Solution code here...
+    // Solution code here...    
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,6 +173,12 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
     // Solution code here...
+    let filteredArr = arr.filter(value => {
+        return ((Object.keys(value)).length === 3);
+    })
+    // console.log(filteredArr);
+
+    return filteredArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
