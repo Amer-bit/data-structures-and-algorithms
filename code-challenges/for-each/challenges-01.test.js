@@ -128,13 +128,10 @@ const createList = (availableItems) => {
   // Solution code here...
   let itemList = []
   availableItems.forEach((value) => {
-
     if (value.available) {
       itemList.push(value.name)
     }
-
   })
-
   return itemList
 
 };
