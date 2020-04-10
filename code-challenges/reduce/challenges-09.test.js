@@ -158,10 +158,12 @@ const countNumberOfChildren = (arr) => {
   // Solution code here...
   
   let count = arr.reduce((acumlat, value) =>{
-    acumlat += (value.children.length);
-    console.log(acumlat);
+    let child = value.children
+    if(Object.keys(value).includes('children')){
+    acumlat +=child.length ;
+    }
     return acumlat
-  }, 0)
+  }, 0)  
   return count
 };
 
@@ -175,6 +177,14 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  let avgNum = arr.reduce ((acumlat, value) =>{
+    acumlat.count
+    console.log(acumlat.count);
+    
+    acumlat.sum += value
+    
+  }, { count: 0, sum: 0 })
+  return avgNum
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -196,6 +206,15 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  let primeNo = arr.reduce((acumlat, value) =>{
+    if(isPrime(value)){
+      console.log(value);
+      
+      acumlat++;
+    }
+    return acumlat
+  }, 0)
+  return primeNo;
 };
 
 /* ------------------------------------------------------------------------------------------------
