@@ -16,8 +16,8 @@ const isNum = (input) => {
   // Solution code here...
   let validation = /[0-9]/g
   return validation.test(input);
-  
-  
+
+
 
 };
 
@@ -37,10 +37,10 @@ const isCapitalized = (str) => {
   let ho = str.match(finder);
   // console.log(ho);
   let empt = [];
-// console.log( 'hey',ho || empt);
+  // console.log( 'hey',ho || empt);
 
   return ho || empt;
-  
+
 
 };
 
@@ -53,18 +53,19 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 const citiesAtoJ = (arr) => {
   // Solution code here...
   let capcity = [];
-  let regfind = /[A-J][a-z]*/g
+  let regfind = /^[A-J]\w/g
   arr.forEach(value => {
+    let test = regfind.test(value)
+    if (test) {
+      capcity.push(value);
+    }
+  });
+  let ho = [];
 
-  capcity = value.match(regfind);
-  let ho =[];
-});
-console.log(capcity);
+  return capcity || ho
 
-return capcity||ho
 
-  
-  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,6 +82,16 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  let regFind1 = /\b[Oo]ct\b/g
+  let regFind2 = /\b[Oo]ctober\b/g
+  if(regFind1.test(input)){
+    return true
+  }else if(regFind2.test(input)){
+    return true
+  }
+  else{
+    return false
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,6 +106,10 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let space = [];
+  let regfind = /\b\w*\s/g
+  space = str.match(regfind);
+  return space
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +126,9 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  let regFind = /[AaOoEeIiUu]/g;
+  let vowlesReplace = str.replace(regFind, '_');  
+  return vowlesReplace
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,7 +176,7 @@ describe('Testing challenge 2', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
-    expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+    expect(capitalResult).toStrictEqual(['We', 'Return', 'Words', 'With', 'Letter']);
     expect(capitalResult.length).toStrictEqual(5);
 
     expect(isCapitalized('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toStrictEqual(['Given', 'Runnymede', 'Windsor', 'Staines', 'June', 'May']);
@@ -205,7 +223,7 @@ describe('Testing challenge 5', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
-    expect(noPunctuation(lorem)).toStrictEqual([ 'Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ' ]);
+    expect(noPunctuation(lorem)).toStrictEqual(['Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ']);
     expect(noPunctuation(lorem).length).toStrictEqual(23);
     expect(noPunctuation('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toEqual(expect.arrayContaining(['Given ', 'by ', 'our ', 'hand ', 'in ', 'the ', 'meadow ', 'that ', 'is ', 'called ', 'between ', 'Windsor ', 'and ', 'on ', 'the ', 'fifteenth ', 'day ', 'of ', 'June ', 'in ', 'the ', 'seventeenth ', 'year ', 'of ', 'our ', 'reign ', 'the ', 'new ', 'regnal ', 'year ', 'began ', 'on ', '28 ']));
   });
