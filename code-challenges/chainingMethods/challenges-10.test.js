@@ -67,7 +67,7 @@ const divisibleByFiveTwoToThePower = (input) => {
         return !(value % 5);
       }
     })
-    let squared = innerLoop.map ( value =>{
+    let squared = innerLoop.map(value => {
       return Math.pow(2, value);
     })
     return squared
@@ -139,6 +139,19 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  // console.log(data);
+  let darkStarChar = data.reduce((acumlate, value) => {
+    let keyFlag = Object.keys(value);
+    let valueFlag = Object.values(value)
+    if ((valueFlag.includes('female')) || (valueFlag.includes('male'))) {
+
+      acumlate += (`${value.name} and `)
+    }
+    return acumlate;
+
+  }, '')
+  return darkStarChar.slice(0,-5);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
