@@ -178,13 +178,12 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 const calculateAverage = (arr) => {
   // Solution code here...
   let avgNum = arr.reduce ((acumlat, value) =>{
-    acumlat.count
-    console.log(acumlat.count);
-    
+    acumlat['count']++
     acumlat.sum += value
-    
-  }, { count: 0, sum: 0 })
-  return avgNum
+    acumlat.avg = acumlat.sum / acumlat['count'];
+    return acumlat
+  }, { count: 0, sum: 0, avg: 0 })  
+  return avgNum.avg
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -208,8 +207,7 @@ const countPrimeNumbers = (arr) => {
   // Solution code here...
   let primeNo = arr.reduce((acumlat, value) =>{
     if(isPrime(value)){
-      console.log(value);
-      
+      // console.log(value);
       acumlat++;
     }
     return acumlat
