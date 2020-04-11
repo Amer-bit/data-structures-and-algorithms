@@ -13,6 +13,14 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  let intCount = input.reduce((acumlate, value) => {
+    let hey = value.filter(value => {
+      return (value === target)
+    })
+    acumlate += hey.length;
+    return acumlate;
+  }, 0)
+  return intCount;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,7 +34,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  // Solution code here...  
+  let calculated = input.reduce((finalacumlat, value) => {
+    let arrSum = value.reduce((acumlat, value) => {
+      acumlat += value;
+      return acumlat;
+    }, 0)
+    finalacumlat += arrSum;
+    return finalacumlat;
+  }, 0)
+  return calculated;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,6 +60,19 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  // console.log(input);
+  let outerLoop = input.map(value => {
+    let innerLoop = value.filter(value => {
+      if (typeof (value) === 'number') {
+        return !(value % 5);
+      }
+    })
+    let squared = innerLoop.map ( value =>{
+      return Math.pow(2, value);
+    })
+    return squared
+  })
+  return outerLoop
 };
 
 /* ------------------------------------------------------------------------------------------------
