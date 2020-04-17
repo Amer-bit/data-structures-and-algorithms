@@ -59,12 +59,11 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  let div = str.split('');
-  console.log(div);
- let odds = div.filter ( (value, idx) => {
-  return !(idx % 2 === 0)
-  })  
-  return odds.join('');
+  let splitted = str.split("");
+  let odds = splitted.filter( (value,idx) => {
+    return (idx % 2)
+  })
+  return odds.join('')
 };
 
 /* ------------------------------------------------------------------------------------------------
