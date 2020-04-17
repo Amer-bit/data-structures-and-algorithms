@@ -63,11 +63,7 @@ const onlyOddChars = (str) => {
   let odds = splitted.filter( (value,idx) => {
     return (idx % 2)
   })
-  console.log(odds);
-  
   return odds.join('')
-  
-  
 };
 
 /* ------------------------------------------------------------------------------------------------
